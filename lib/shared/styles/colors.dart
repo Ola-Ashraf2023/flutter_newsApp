@@ -1,14 +1,13 @@
 import 'package:flutter/animation.dart';
 
 class MyColors {
-  static Color backColor = const Color(0xffDFECDB);
-  static Color backColorDark = const Color(0xff060E1E);
-  static Color appBarColor = const Color(0xff5D9CEC);
-  static Color doneGreen = const Color(0xff61E757);
-  static Color deleteRed = const Color(0xffEC4B4B);
-  static Color bottomAppBarDark = const Color(0xff141922);
+  static Color mainColor = const Color(0xff39A552);
+  static Color scienceYellow = const Color(0xffF2D352);
+  static Color environBlue = const Color(0xff4882CF);
+  static Color healthPink = const Color(0xffED1E79);
+  static Color businessOrange = const Color(0xffCF7E48);
+  static Color politicsBlue = const Color(0xff003E90);
   static Color whiteColor = const Color(0xffffffff);
   static Color blackColor = const Color(0xff000000);
-  static Color unselectedIconColor = const Color(0xffC8C9CB);
-  static Color lighterBlack = const Color(0xff363636);
+  static Color sportsRed = const Color(0xffC91C22);
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news/models/SourceResponse.dart';
+import 'package:news/screens/tab_controller.dart';
 import 'package:news/shared/network/remote/api_manager.dart';
 
 class HomeLayout extends StatelessWidget {
@@ -20,9 +21,7 @@ class HomeLayout extends StatelessWidget {
           }
 
           var sources=snapshot.data?.sources??[];
-          return ListView.builder(itemBuilder: (context, index) {
-            return(Text(sources[index].name??""));
-          },itemCount: sources.length,);
+          return MyTabController(sources);
         },
       ),
     );

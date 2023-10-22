@@ -4,16 +4,13 @@ import 'package:news/shared/styles/colors.dart';
 
 class MyThemeData {
   static ThemeData lightTheme = ThemeData(
-      scaffoldBackgroundColor: MyColors.backColor,
       appBarTheme: AppBarTheme(
-        backgroundColor: MyColors.appBarColor,
+        backgroundColor: MyColors.mainColor,
         iconTheme: IconThemeData(color: MyColors.whiteColor),
       ),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          selectedItemColor: MyColors.appBarColor,
-          unselectedItemColor: MyColors.unselectedIconColor,
-          backgroundColor: Colors.transparent,
-          elevation: 0),
+      tabBarTheme: TabBarTheme(
+        //here
+      ),
       textTheme: TextTheme(
           bodyLarge: GoogleFonts.poppins(
               fontSize: 22,
@@ -21,30 +18,7 @@ class MyThemeData {
               color: MyColors.whiteColor),
           bodySmall: GoogleFonts.poppins(
               fontSize: 12,
-              color: MyColors.lighterBlack,
+              color: MyColors.blackColor,
               fontWeight: FontWeight.w400)));
-  static ThemeData darkTheme = ThemeData(
-      scaffoldBackgroundColor: MyColors.backColorDark,
-      appBarTheme: AppBarTheme(
-        backgroundColor: MyColors.appBarColor,
-        iconTheme: IconThemeData(color: MyColors.blackColor),
-      ),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        elevation: 0,
-        selectedItemColor: MyColors.appBarColor,
-        backgroundColor: Colors.transparent,
-        unselectedItemColor: MyColors.unselectedIconColor,
-      ),
-      bottomAppBarTheme: BottomAppBarTheme(
-          //elevation: 0,
-          color: MyColors.bottomAppBarDark),
-      textTheme: TextTheme(
-          bodyLarge: GoogleFonts.poppins(
-              fontSize: 22,
-              fontWeight: FontWeight.w700,
-              color: MyColors.blackColor),
-          bodySmall: GoogleFonts.poppins(
-              fontSize: 12,
-              color: MyColors.whiteColor,
-              fontWeight: FontWeight.w400)));
+
 }
