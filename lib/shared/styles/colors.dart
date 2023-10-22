@@ -10,4 +10,7 @@ class MyColors {
   static Color whiteColor = const Color(0xffffffff);
   static Color blackColor = const Color(0xff000000);
   static Color sportsRed = const Color(0xffC91C22);
+  static Color sourceColor=const Color(0xff79828B);
+  static Color titleColor=const Color(0xff42505C);
+  static Color timeColor=Color(0xffA3A3A3);
 }

@@ -9,7 +9,12 @@ class HomeLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("News App"),),
+      appBar: AppBar(title: Text("News App"),
+        elevation: 0.0,
+        shape: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.transparent),
+        borderRadius: BorderRadius.only(bottomRight:Radius.circular(20) ,bottomLeft:Radius.circular(30) ),
+      ),),
       body: FutureBuilder(
         future:ApiManager.getSources() ,
         builder:(context,snapshot){
