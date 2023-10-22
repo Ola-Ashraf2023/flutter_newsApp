@@ -8,8 +8,8 @@ const String base="newsapi.org";
 const String endpoint="/v2/top-headlines/sources";
 const String apiKey="4d0f4fbda7b642e4a444d3d595cdb8a9";
 class ApiManager{
-  static Future<SourceResponse> getSources() async {
-    Uri url=Uri.https(base,endpoint,{"apiKey":apiKey});
+  static Future<SourceResponse> getSources(String ? category) async {
+    Uri url=Uri.https(base,endpoint,{"apiKey":apiKey,"category":category});
     http.Response response=await http.get(url);
     var jsonData=jsonDecode(response.body);
     SourceResponse sourceResponse=SourceResponse.fromJson(jsonData);
