@@ -16,10 +16,7 @@ class CategoryItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(categoryModel.imagePath,height: 110,),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Expanded(child: Container(child: Center(child: Text(categoryModel.txt,style: GoogleFonts.exo(color: Colors.white,fontSize: 22,fontWeight: FontWeight.w400),)))),
-          )
+          Expanded(child: Container(child: Center(child: Text(categoryModel.txt,style: GoogleFonts.exo(color: Colors.white,fontSize: 22,fontWeight: FontWeight.w400),))))
         ],
       ),
     );

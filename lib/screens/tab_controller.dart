@@ -7,8 +7,9 @@ import '../models/SourceResponse.dart';
 
 class MyTabController extends StatefulWidget {
 
+  String keyword;
   List<Sources> sources;
-  MyTabController(this.sources);
+  MyTabController(this.sources,this.keyword);
 
   @override
   State<MyTabController> createState() => _MyTabControllerState();
@@ -34,7 +35,7 @@ class _MyTabControllerState extends State<MyTabController> {
               tabs: widget.sources.map((source) => Tab(child: MyTab(source.name,widget.sources.indexOf(source)==idx),)).toList(),
 
             )),
-        FutureBuilder(future: ApiManager.getNewsData(widget.sources[idx].id??""), builder: (context, snapshot) {
+        FutureBuilder(future: ApiManager.getNewsData(widget.sources[idx].id??"",widget.keyword), builder: (context, snapshot) {
           if(snapshot.connectionState==ConnectionState.waiting){
             return Center(child: CircularProgressIndicator());
           }

@@ -6,7 +6,7 @@ import 'package:news/models/SourceResponse.dart';
 
 const String base="newsapi.org";
 const String endpoint="/v2/top-headlines/sources";
-const String apiKey="4d0f4fbda7b642e4a444d3d595cdb8a9";
+const String apiKey="df1bd8c4bf634fdfb689cfcc34365e7d";
 class ApiManager{
   static Future<SourceResponse> getSources(String ? category) async {
     Uri url=Uri.https(base,endpoint,{"apiKey":apiKey,"category":category});
@@ -16,8 +16,8 @@ class ApiManager{
     return sourceResponse;
   }
 
-  static Future<NewsDataModel> getNewsData(String sourceId) async {
-    Uri url=Uri.https(base,"/v2/everything",{"apiKey":apiKey,"sources":sourceId});
+  static Future<NewsDataModel> getNewsData(String sourceId, String keyword) async {
+    Uri url=Uri.https(base,"/v2/everything",{"apiKey":apiKey,"sources":sourceId, "q":keyword});
     http.Response response=await http.get(url);
     var jsonData=jsonDecode(response.body);
     NewsDataModel newsDataModel=NewsDataModel.fromJson(jsonData);
