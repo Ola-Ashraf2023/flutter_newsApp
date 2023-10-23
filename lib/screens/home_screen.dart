@@ -8,7 +8,6 @@ import '../shared/network/remote/api_manager.dart';
 class HomeScreen  extends StatelessWidget {
   CategoryModel categoryModel;
   String keyword;
-
   HomeScreen(this.categoryModel,this.keyword);
 
   @override

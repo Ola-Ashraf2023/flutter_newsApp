@@ -11,6 +11,7 @@ class MyTabController extends StatefulWidget {
   String keyword;
   List<Sources> sources;
   Locale? locale;
+  //Function onNewsSelect;
 
   MyTabController(this.sources, this.keyword, this.locale);
 
