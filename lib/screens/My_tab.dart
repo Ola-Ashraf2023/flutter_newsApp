@@ -12,14 +12,19 @@ class MyTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 10,horizontal: 15),
+      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 15),
       margin: EdgeInsets.only(top: 10),
       decoration: BoxDecoration(
-        border: Border.all(color:MyColors.mainColor),
-        color: active? MyColors.mainColor: Colors.white,
+        border: Border.all(color: MyColors.mainColor),
+        color: active ? MyColors.mainColor : Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Tab(child: Text(txt??"",style: TextStyle(color: active? Colors.white:MyColors.mainColor),),),
+      child: Tab(
+        child: Text(
+          txt ?? "",
+          style: TextStyle(color: active ? Colors.white : MyColors.mainColor),
+        ),
+      ),
     );
   }
 }

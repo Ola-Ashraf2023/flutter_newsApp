@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:news/screens/My_tab.dart';
 import 'package:news/screens/news_card.dart';
@@ -9,6 +10,7 @@ class MyTabController extends StatefulWidget {
 
   String keyword;
   List<Sources> sources;
+
   MyTabController(this.sources,this.keyword);
 
   @override
@@ -40,8 +42,8 @@ class _MyTabControllerState extends State<MyTabController> {
             return Center(child: CircularProgressIndicator());
           }
           if (snapshot.hasError) {
-            return const Center(child: Text("Something went wrong"));
-          }
+            return Center(child: Text("Something went wrong".tr()));
+            }
           var news=snapshot.data?.articles??[];
           return Expanded(
             child: ListView.builder(itemBuilder: (context, index) {

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news/models/category_model.dart';
@@ -6,7 +7,9 @@ import 'package:news/shared/styles/colors.dart';
 
 class CategoryScreen extends StatelessWidget {
   Function onCategorySelect;
+
   CategoryScreen(this.onCategorySelect);
+
   @override
   Widget build(BuildContext context) {
     var categories=CategoryModel.getCategories();
@@ -16,20 +19,26 @@ class CategoryScreen extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text("Pick your category of interest",style: GoogleFonts.poppins(color: MyColors.titleColor, fontWeight: FontWeight.w700,fontSize: 22),),
+            child: Text(
+              "Pick your category of interest".tr(),
+              style: GoogleFonts.poppins(
+                  color: MyColors.titleColor,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 22),
+            ),
           ),
           Expanded(
             child: GridView.builder(
               itemCount: categories.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, mainAxisSpacing: 12,crossAxisSpacing: 12),
+                  crossAxisCount: 2, mainAxisSpacing: 12,crossAxisSpacing: 12),
               itemBuilder: (context, index) {
                 return InkWell(
                     onTap: (){
                       onCategorySelect(categories[index]);
                     },
                     child: CategoryItem(categories[index], index));
-            },),
+              },),
           )
         ],
       ),

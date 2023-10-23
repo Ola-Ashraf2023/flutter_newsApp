@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:news/models/category_model.dart';
 import 'package:news/screens/tab_controller.dart';
@@ -7,6 +8,7 @@ import '../shared/network/remote/api_manager.dart';
 class HomeScreen  extends StatelessWidget {
   CategoryModel categoryModel;
   String keyword;
+
   HomeScreen(this.categoryModel,this.keyword);
 
   @override
@@ -18,7 +20,7 @@ class HomeScreen  extends StatelessWidget {
           return Center(child: CircularProgressIndicator());
         }
         if (snapshot.hasError) {
-          return const Center(child: Text("Something went wrong"));
+          return Center(child: Text("Something went wrong".tr()));
         }
 
         var sources=snapshot.data?.sources??[];
