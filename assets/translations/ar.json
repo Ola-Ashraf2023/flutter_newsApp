@@ -6,5 +6,11 @@
   "Categories": "فئات الاخبار",
   "Settings": "الاعدادات",
   "Something went wrong": "حدث خطأ غير متوقع",
-  "Pick your category of interest": " اختر فئة الاخبار التي تريد"
+  "Pick your category of interest": " اختر فئة الاخبار التي تريد",
+  "Business": "ادارة الاعمال",
+  "Health": "الصحة",
+  "Science": "العلوم",
+  "Sports": "الرياضة",
+  "General": "عام",
+  "Entertainment": "التسلية"
 }

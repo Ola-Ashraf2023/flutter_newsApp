@@ -14,17 +14,19 @@ class HomeScreen  extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future:ApiManager.getSources(categoryModel.id) ,
-      builder:(context,snapshot){
-        if(snapshot.connectionState==ConnectionState.waiting){
+      future: ApiManager.getSources(
+          categoryModel.id, EasyLocalization.of(context)!.currentLocale),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(child: CircularProgressIndicator());
         }
         if (snapshot.hasError) {
           return Center(child: Text("Something went wrong".tr()));
         }
 
-        var sources=snapshot.data?.sources??[];
-        return MyTabController(sources,keyword);
+        var sources = snapshot.data?.sources ?? [];
+        return MyTabController(
+            sources, keyword, EasyLocalization.of(context)!.currentLocale);
       },
     );
   }

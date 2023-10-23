@@ -24,8 +24,15 @@ class _DrawerScreenState extends State<DrawerScreen> {
         children: [
           Container(color: MyColors.mainColor,child: Padding(
             padding: const EdgeInsets.all(20),
-            child: Text("News App!",textAlign:TextAlign.center,style: GoogleFonts.poppins(color: Colors.white,fontSize: 24,fontWeight: FontWeight.w700),),
-          ),),
+              child: Text(
+                "News App".tr(),
+                textAlign: TextAlign.center,
+                style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700),
+              ),
+            ),),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: InkWell(

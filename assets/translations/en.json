@@ -6,5 +6,11 @@
   "Categories": "Categories",
   "Settings": "Settings",
   "Something went wrong": "Something went wrong",
-  "Pick your category of interest": "Pick your category of interest"
+  "Pick your category of interest": "Pick your category of interest",
+  "Business": "Business",
+  "Health": "Health",
+  "Science": "Science",
+  "Sports": "Sports",
+  "General": "General",
+  "Entertainment": "Entertainment"
 }
