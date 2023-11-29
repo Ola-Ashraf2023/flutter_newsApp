@@ -6,6 +6,7 @@ import 'package:news/models/category_model.dart';
 import 'package:news/screens/category_screen.dart';
 import 'package:news/screens/cubit/cubit.dart';
 import 'package:news/screens/cubit/states.dart';
+import 'package:news/screens/repo/remote_data_source.dart';
 import 'package:news/screens/settings_screen.dart';
 import 'package:news/screens/tab_controller.dart';
 import 'package:news/shared/network/remote/api_manager.dart';
@@ -19,7 +20,7 @@ class HomeLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCubit(),
+      create: (context) => HomeCubit(RemoteDataSource()),
       child: BlocConsumer<HomeCubit, HomeStates>(
         listener: (BuildContext context, Object? state) {
           if (state is HomeSourcesLoadingState ||
@@ -80,6 +81,7 @@ class HomeLayout extends StatelessWidget {
                             prefixIcon: InkWell(
                                 onTap: () {
                                   HomeCubit.get(context).changeSearchVis(false);
+                                  HomeCubit.get(context).changeKeyword("");
                                 },
                                 child: Icon(Icons.cancel_outlined)),
                             suffixIcon: InkWell(

@@ -10,9 +10,12 @@ import '../../models/SourceResponse.dart';
 import '../../models/category_model.dart';
 import '../../shared/network/remote/api_manager.dart';
 import '../drawer_screen.dart';
+import '../repo/repository.dart';
 
 class HomeCubit extends Cubit<HomeStates> {
-  HomeCubit() : super(HomeInitState());
+  HomeRepo homeRepo;
+
+  HomeCubit(this.homeRepo) : super(HomeInitState());
 
   static HomeCubit get(context) => BlocProvider.of(context);
   List<Sources> sources = [];
@@ -73,16 +76,8 @@ class HomeCubit extends Cubit<HomeStates> {
   Future<void> getSources(Locale? locale) async {
     try {
       emit(HomeSourcesLoadingState());
-      Uri url = Uri.https(base, endpoint, {
-        "apiKey": apiKey,
-        "category": categoryModel?.id ?? "general",
-        "language": locale!.languageCode
-      });
-      print("inside get sources-----------------------");
-      print(categoryModel?.id);
-      http.Response response = await http.get(url);
-      var jsonData = jsonDecode(response.body);
-      SourceResponse sourceResponse = SourceResponse.fromJson(jsonData);
+      SourceResponse sourceResponse =
+          await homeRepo.getSources(categoryModel?.id ?? "general");
       sources = sourceResponse.sources ?? [];
       emit(HomeSourcesSuccessState());
     } catch (e) {
@@ -94,15 +89,8 @@ class HomeCubit extends Cubit<HomeStates> {
   Future<void> getNewsData(Locale? locale) async {
     try {
       emit(HomeNewsDataLoadingState());
-      Uri url = Uri.https(base, "/v2/everything", {
-        "apiKey": apiKey,
-        "sources": sources[idx].id,
-        "q": keyWord,
-        "language": locale!.languageCode
-      });
-      http.Response response = await http.get(url);
-      var jsonData = jsonDecode(response.body);
-      NewsDataModel newsDataModel = NewsDataModel.fromJson(jsonData);
+      NewsDataModel newsDataModel =
+          await homeRepo.getNews(sources[idx].id ?? "", keyWord);
       articles = newsDataModel.articles ?? [];
       emit(HomeNewsDataSuccessState());
     } catch (e) {
